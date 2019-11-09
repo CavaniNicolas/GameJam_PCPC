@@ -1,24 +1,22 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 37, in script
-    if $ sympathie < 50 :
-SyntaxError: invalid syntax (game/script.rpy, line 37)
+  File "game/script.rpy", line 61, in script
+    jump manu
+ScriptError: could not find label 'manu'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 37, in script
-    if $ sympathie < 50 :
-  File "C:\Users\Théo\Downloads\renpy-7.3.5-sdk\renpy\ast.py", line 1832, in execute
-    if renpy.python.py_eval(condition):
-  File "C:\Users\Théo\Downloads\renpy-7.3.5-sdk\renpy\python.py", line 2057, in py_eval
-    code = py_compile(code, 'eval')
-  File "C:\Users\Théo\Downloads\renpy-7.3.5-sdk\renpy\python.py", line 692, in py_compile
-    raise e
-SyntaxError: invalid syntax (game/script.rpy, line 37)
+  File "game/script.rpy", line 61, in script
+    jump manu
+  File "C:\Users\Théo\Downloads\renpy-7.3.5-sdk\renpy\ast.py", line 1697, in execute
+    rv = renpy.game.script.lookup(target)
+  File "C:\Users\Théo\Downloads\renpy-7.3.5-sdk\renpy\script.py", line 898, in lookup
+    raise ScriptError("could not find label '%s'." % str(original))
+ScriptError: could not find label 'manu'.
 
 Windows-8-6.2.9200
 Ren'Py 7.3.5.606
 GAmejAM 1.0
-Sat Nov 09 20:19:14 2019
+Sat Nov 09 23:38:47 2019
