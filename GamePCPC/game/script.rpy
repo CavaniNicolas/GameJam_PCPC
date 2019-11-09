@@ -1,33 +1,71 @@
-﻿# The script of the game goes in this file.
+﻿# Vous pouvez placer le script de votre jeu dans ce fichier.
 
-# Declare characters used by this game. The color argument colorizes the
-# name of the character.
+# Déclarez sous cette ligne les images, avec l'instruction 'image'
+# ex: image eileen heureuse = "eileen_heureuse.png"
 
-define e = Character("Eileen")
+# Déclarez les personnages utilisés dans le jeu.
+define e = Character('Eileen', color="#c8ffc8")
+
+define manu = Character('Manu Macpla', color="#c8ffc8")
 
 
-# The game starts here.
+
+define perso = Character('Joueur', color="#c8ffc8")
+
+
+
+# Le jeu commence ici
 
 label start:
+    $ nom = ""
+    $ sympathie = 50
+    $ platiste = 0
+    $ jaque = 0
+    manu "Sacré match, hein? Jaque est en feu aujourd'hui."
 
-    # Show a background. This uses a placeholder by default, but you can
-    # add a file (named either "bg room.png" or "bg room.jpg") to the
-    # images directory to show it.
+    menu:
+        "C'est vrai.":
+            $ sympathie += 5
+        "Carrément! Il est bien meilleur qu'à la saison précédente":
+            $ sympathie += 10
+        "Bof. Le frisbee ne m'intéresse pas tellement.":
+            $ sympathie -= 5
+            if platiste >= 10:
+                $ platiste -= 10
+        "Vous rigolez? Il joue comme un pied":
+            $ sympathie -= 10
+            $ jaque += 1
 
-    scene bg room
+    if sympathie < 50 :
+        manu "Vous gaspillez mon temps. Je suis ici pour me détendre."
 
-    # This shows a character sprite. A placeholder is used, but you can
-    # replace it by adding a file named "eileen happy.png" to the images
-    # directory.
+        manu "Je suis un homme très occupé, j'ai de gros PROJETS en cours."
 
-    show eileen happy
+        if jaque == 1
+            jump jakill
+    if sympathie > 50
+        manu "Quel est votre sport préféré?"
+        menu:
+            "Le frisbee."
+                $ sympathie -= 5
+            "Le football."
+                $ secret = 1
+            "Le pole dance."
+                $ sympathie += 10
+            "L'escrime."
+                $ sympathie += 5
+    if secret == 0
+        manu "Intéréssant."
+        jump manu
+    if secret == 1
+        manu "Rejoignez moi dans ma loge après le match."
+        jump loge
+    return
 
-    # These display lines of dialogue.
+label jakill:
+    
+    return
 
-    e "You've created a new Ren'Py game."
-
-    e "Once you add a story, pictures, and music, you can release it to the world!"
-
-    # This ends the game.
+label loge:
 
     return
