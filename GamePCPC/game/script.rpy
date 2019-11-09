@@ -5,16 +5,16 @@
 
 # Déclarez les personnages utilisés dans le jeu.
 define jem = Character('James Rond', color="#c8ffc8")
-
+define juge = Character('Juge RondHomme',color="#cd45a3")
 define nom = "Random"
 define sympathie = 50
+
+define flash = Fade(.25, 0, .75, color="#fff")
 
 
 # Le jeu commence ici
 label start:
-    scene base:
-        zoom 2
-        yalign 0
+    scene base
     show spy
     jem "Enfin pour finir, écris ton nom "
     python:
@@ -40,14 +40,39 @@ label descriptionlieu:
         jem "Sur quel lieu veut tu des info ?"
 
         "Le centre spatial de la NAFA":
-
+            "NAFA"
         "La grande université de Flatvard":
-
+            "Flatvard"
         "Le stade de Platsbee":
-
+            "bbeeeeeeeeeee"
         "La forêt":
+            "foret"
 
         "Ca ira" :
+            jem "Très bien passons a ton choix"
             jump choixlieu
 
-    jump descritpionlieu
+    jump descriptionlieu
+
+label choixlieu:
+    menu:
+        jem "Où veux tu aller ?"
+
+        "Le centre spatial de la NAFA":
+            jump NAFA
+        "La grande université de Flatvard":
+            jump flatvard
+        "Le stade de Platsbee":
+            jump platsbee
+        "La forêt":
+            jump foret
+
+        "Je veux présenter mes preuves !" :
+            jump tribunal
+
+label tribunal:
+    jem "Excellent choix ...."
+    jem "{cps=5}Excellent ... Choix{/cps}  "
+    scene tribunal
+    with flash
+    juge ""

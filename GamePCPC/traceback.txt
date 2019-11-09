@@ -1,0 +1,22 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/script.rpy", line 66, in script
+    jump platsbee
+ScriptError: could not find label 'platsbee'.
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "game/script.rpy", line 66, in script
+    jump platsbee
+  File "/home/chovet/renpy-7.3.5-sdk/renpy/ast.py", line 1697, in execute
+    rv = renpy.game.script.lookup(target)
+  File "/home/chovet/renpy-7.3.5-sdk/renpy/script.py", line 898, in lookup
+    raise ScriptError("could not find label '%s'." % str(original))
+ScriptError: could not find label 'platsbee'.
+
+Linux-4.15.0-29-generic-x86_64-with-debian-buster-sid
+Ren'Py 7.3.5.606
+GamePCPC 1.0
+Sun Nov 10 00:26:59 2019
