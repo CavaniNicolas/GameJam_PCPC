@@ -2,4 +2,4 @@
 #PCPC : Pancake Crepe Pizza Chips
 
 
-# Dev: Emilie Loic Jeremy Theo Nicolas
+# Dev: Emilie Loick Jeremy Theo Nicolas
